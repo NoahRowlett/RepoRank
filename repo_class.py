@@ -1,7 +1,8 @@
 class Repo:
 	# constructor:
 	def __init__(self, name):
-		self.stars = name.rstrip()
+		self.name = name.rstrip()
+		self.stars = 0
 		self.contributors = 0
 		self.watchers = 0
 		self.issues = 0
@@ -9,6 +10,9 @@ class Repo:
 
 	def get_name(self):
 		return self.name
+
+	def get_stars(self):
+		return self.stars
 
 	def get_contributors(self):
 		return self.contributors
@@ -28,21 +32,31 @@ class Repo:
 			self.contributors = int(c)
 			self.watchers = int(w)
 			self.issues = int(i)
-			self.url = string(u)
+			self.url = str(u)
 			return True
 		else:
 			return False
 
 	def format_output(self):
-		output = self.name
+		output = self.get_name()
 		output += ":\n\tstars: "
-		output += self.get_stars()
+		output += str(self.get_stars())
 		output += "\n\tcontributors: "
-		output += self.get_contributors()
-		output += "\n\watchers: "
-		output += self.get_watchers()
+		output += str(self.get_contributors())
+		output += "\n\twatchers: "
+		output += str(self.get_watchers())
+		output += "\n\tissues: "
+		output += str(self.get_issues())
 		output += "\n\turl: "
-		output += self.get_url()
+		output += str(self.get_url())
 		return output
 
-name = raw_input("Enter repo info in the format (name, stars, contributors, watchers, url: ")
+name = raw_input("Enter repo name: ")
+stars = raw_input("Enter number of stars: ")
+contributors = raw_input("Enter number of contributors: ")
+watchers = raw_input("Enter number of watchers: ")
+issues = raw_input("Enter number of issues: ")
+url = raw_input("Enter number of url: ")
+repo = Repo(name)
+repo.add_info(stars, contributors, watchers, issues, url)
+print repo.format_output()
