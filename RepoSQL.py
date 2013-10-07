@@ -1,6 +1,6 @@
 import MySQLdb
 from repoClass import *
-import dbAccess
+from dbAccess import *
 
 print cur
 
