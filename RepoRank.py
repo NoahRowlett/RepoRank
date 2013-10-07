@@ -4,6 +4,8 @@ import base64
 import requests
 import RepoSQL
 import getpass as g
+from dbAccess import *
+from peewee import *
 from repoClass import *
 
 def main(): 
@@ -22,7 +24,8 @@ def main():
       url = 'https://api.github.com/repos/' + temp['full_name']
       r = requests.get(url, auth=(username,password))
       stuff = json.loads(r.content)
-      repos.append(Repo(stuff['name'], watchers=stuff['watchers_count'], issues=stuff['open_issues_count']))
+      repos.append(Repo(name=stuff['name'], watchers=stuff['watchers_count'], issues=stuff['open_issues_count']))
+      repos[-1].save()
       print repos[-1].get_name() + " " + str(repos[-1].get_watchers()) + " " + str(repos[-1].get_issues())
     url = link[link.find('<')+1:link.find('>')]
   RepoSQL.importToDB(repos)
