@@ -2,5 +2,7 @@ import MySQLdb
 from repoClass import *
 from dbAccess import *
 
-print cur
+def importToDB(repoList):
+    for item in repoList:
+        item.save()
 

@@ -2,6 +2,7 @@ import urllib2 as urllib
 import json
 import base64
 import requests
+import RepoSQL
 import getpass as g
 from repoClass import *
 
@@ -24,5 +25,6 @@ def main():
       repos.append(Repo(stuff['name'], watchers=stuff['watchers_count'], issues=stuff['open_issues_count']))
       print repos[-1].get_name() + " " + str(repos[-1].get_watchers()) + " " + str(repos[-1].get_issues())
     url = link[link.find('<')+1:link.find('>')]
+  RepoSQL.importToDB(repos)
 
 if  __name__ =='__main__':main()
