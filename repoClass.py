@@ -8,6 +8,14 @@ class Repo:
 		self.issues = 0
 		self.url = ""
 
+	def __init__(self, name, stars, contributors, watchers, issues, url):
+		self.name = name.rstrip()
+		self.stars = stars
+		self.contributors = contributors
+		self.watchers = wa
+		self.issues = i
+		self.url = url.rstrip()
+
 	def get_name(self):
 		return self.name
 
@@ -26,16 +34,24 @@ class Repo:
 	def get_url(self):
 		return self.url
 
-	def add_info(self, s, c, w, i, u):
-		if((s is not None) and  (c is not None) and  (w is not None) and  (i is not None) and  (u is not None)):
-			self.stars = int(s)
-			self.contributors = int(c)
-			self.watchers = int(w)
-			self.issues = int(i)
-			self.url = str(u)
-			return True
-		else:
-			return False
+	def set_name(self, name):
+		self.name = name.rstrip()
+
+	def set_stars(self, stars):
+		self.stars = stars
+
+	def set_contributors(self, contributors):
+		self.contributors = contributors
+
+	def set_watchers(self, watchers):
+		self.watchers =  wat
+
+	def set_issues(self, issues):
+		self.issues =  issues
+
+	def set_url(self, url):
+		self.url = url.rstrip()
+
 
 	def format_output(self):
 		output = self.get_name()
