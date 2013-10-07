@@ -19,6 +19,7 @@ def __main__():
     for i in range(0, len(info) - 1):
       temp = info[i]
       # repos.append(Repo(temp['name'], watchers=temp['watchers_count']))
+      # tempurl[0:-7] means taking 'https://api.github.com/repositories' and making it 'https://api.github.com/repos'
       url = tempurl[0:-7] + '/' + temp['full_name']
       r = requests.get(url, auth=(username,password))
       stuff = json.loads(r.content)
