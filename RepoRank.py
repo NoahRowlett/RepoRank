@@ -11,6 +11,7 @@ def __main__():
   password = g.getpass()
   repos = []
   for page in range(1, 11):
+    print url
     request = urllib.Request(url)
     base64string = base64.encodestring('%s:%s' % (username, password)).replace('\n', '')
     request.add_header("Authorization", "Basic %s" % base64string)  
@@ -19,17 +20,21 @@ def __main__():
     headers = response.info()
     link = headers['Link']
     info = json.loads(html)
+    tempurl = url
     for i in range(0, len(info) - 1):
       temp = info[i]
+      print "before: " + url
       # repos.append(Repo(temp['name'], watchers=temp['watchers_count']))
-      url = url[0:-7] + '/' + temp['full_name']
-      print url
+      url = tempurl[0:-7] + '/' + temp['full_name']
+      print "after: " + url
       request = urllib.Request(url)
       base64string = base64.encodestring('%s:%s' % (username, password)).replace('\n', '')
       request.add_header("Authorization", "Basic %s" % base64string)  
       response = urllib.urlopen(url)
-      print response[0]['name']
+      stuff = json.loads(response.read())
+      print stuff['name']
       # print repos[-1].get_name()
       # print repos[-1].get_watchers()
     url = link[link.find('<')+1:link.find('>')]
+
 __main__()
