@@ -28,5 +28,6 @@ def main():
       repos[-1].save()
       print repos[-1].get_name() + " " + str(repos[-1].get_watchers()) + " " + str(repos[-1].get_issues())
     url = link[link.find('<')+1:link.find('>')]
+  RepoSQL.importToDB(repos)
 
 if  __name__ =='__main__':main()
