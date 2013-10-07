@@ -2,7 +2,7 @@ import urllib2 as urllib
 import json
 import base64
 import getpass as g
-from repo_class import *
+from repoClass import *
 
 def __main__(): 
   url = 'https://api.github.com/repositories'
