@@ -22,7 +22,8 @@ def __main__():
     info = json.loads(html)
     for i in range(0, len(info) - 1):
       temp = info[-1]
-      repos.append(Repo(temp['name'], watchers=temp['watchers']))
+      print temp
+      repos.append(Repo(temp['name'], watchers=temp['watchers_count']))
       print repos[-1].get_name()
       print repos[-1].get_watchers()
       
