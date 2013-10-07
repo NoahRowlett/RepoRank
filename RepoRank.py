@@ -22,7 +22,7 @@ def __main__():
     info = json.loads(html)
     for i in range(0, len(info) - 1):
       temp = info[i]
-      repos.append(repoClass(temp['name']))
+      repos.append(Repo(temp['name']))
       print repos[i].get_name()
 
 __main__()
