@@ -1,8 +1,8 @@
 class Repo:
 
-	def __init__(self, name="", stars=0, contributors=0, watchers=0, issues=0, url=""):
+	def __init__(self, name="", contributors=0, watchers=0, issues=0, url=""):
 		self.name = name.rstrip()
-		self.stars = stars
+		#self.stars = stars 	# https://twitter.com/GitHubAPI/status/245863129957928960 count stargazers as watchers
 		self.contributors = contributors
 		self.watchers = watchers
 		self.issues = issues
@@ -11,8 +11,8 @@ class Repo:
 	def get_name(self):
 		return self.name
 
-	def get_stars(self):
-		return self.stars
+	# def get_stars(self):
+	# 	return self.stars
 
 	def get_contributors(self):
 		return self.contributors
@@ -29,8 +29,8 @@ class Repo:
 	def set_name(self, name):
 		self.name = name.rstrip()
 
-	def set_stars(self, stars):
-		self.stars = stars
+	# def set_stars(self, stars):
+	# 	self.stars = stars
 
 	def set_contributors(self, contributors):
 		self.contributors = contributors
@@ -47,8 +47,8 @@ class Repo:
 
 	def format_output(self):
 		output = self.get_name()
-		output += ":\n\tstars: "
-		output += str(self.get_stars())
+		# output += ":\n\tstars: "
+		# output += str(self.get_stars())
 		output += "\n\tcontributors: "
 		output += str(self.get_contributors())
 		output += "\n\twatchers: "
