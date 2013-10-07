@@ -1,19 +1,11 @@
 class Repo:
-	# constructor:
-	def __init__(self, name):
-		self.name = name.rstrip()
-		self.stars = 0
-		self.contributors = 0
-		self.watchers = 0
-		self.issues = 0
-		self.url = ""
 
-	def __init__(self, name, stars, contributors, watchers, issues, url):
+	def __init__(self, name="", stars=0, contributors=0, watchers=0, issues=0, url=""):
 		self.name = name.rstrip()
 		self.stars = stars
 		self.contributors = contributors
-		self.watchers = wa
-		self.issues = i
+		self.watchers = watchers
+		self.issues = issues
 		self.url = url.rstrip()
 
 	def get_name(self):
