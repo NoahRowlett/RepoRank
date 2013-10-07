@@ -7,7 +7,7 @@ from repo_class import *
 def __main__(): 
   url = 'https://api.github.com/repositories'
   
-  username = raw_input()
+  username = raw_input("Enter username: ")
   password = g.getpass()
   for page in range(1, 11):
     repos = []
