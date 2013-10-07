@@ -1,12 +1,22 @@
-class Repo:
+import peewee
+from peewee import *
+from dbAccess import *
 
-	def __init__(self, name="", contributors=0, watchers=0, issues=0, url=""):
-		self.name = name.rstrip()
+class Repo(Model):
+
+	name = CharField()
+	contributors = IntegerField()
+	watchers = IntegerField()
+	open_issues = IntegerField()
+	url = CharField()
+
+#	def __init__(Model):
+#		self.name = CharField()
 		#self.stars = stars 	# https://twitter.com/GitHubAPI/status/245863129957928960 count stargazers as watchers
-		self.contributors = contributors
-		self.watchers = watchers
-		self.issues = issues
-		self.url = url.rstrip()
+#		self.contributors = IntegerField()
+#		self.watchers = IntegerField()
+#		self.issues = IntegerField()
+#		self.url = CharField()
 
 	def get_name(self):
 		return self.name
@@ -58,7 +68,9 @@ class Repo:
 		output += "\n\turl: "
 		output += str(self.get_url())
 		return output
-
+	
+	class Meta:
+		database = db
 # name = raw_input("Enter repo name: ")
 # stars = raw_input("Enter number of stars: ")
 # contributors = raw_input("Enter number of contributors: ")
